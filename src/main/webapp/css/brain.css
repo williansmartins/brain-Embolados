@@ -1,3 +1,7 @@
+@font-family-base
+@font-size-base
+@line-height-base
+
 .form1{
 	margin: 0 auto;
 	width: 300px;
@@ -6,6 +10,9 @@
 	width: 700px;
 	margin: 0 auto;
 }
-h1{
+h1.centro{
+	text-align: center;
+}
+.centro{
 	text-align: center;
 }

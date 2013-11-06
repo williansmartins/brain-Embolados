@@ -12,7 +12,7 @@
 	
 	</h:head>
 	<body> 
-		<div class="wrapper" >                  
+		<div class="container wrapper" >                  
        		<div id="menu"> 
 	          	<div id="holder">
 	                   <ul class="itens">      
@@ -25,41 +25,16 @@
 	          <div id="vitrine">
 	          </div>
 		      <div id="palco">
-		      	<div id="conteudo">
-					<h1>Faça seu pedido no "Embolados"</h1>
-					<h:form role="form" class="form1">
-					    <div class="form-group col-lg-1">
-					        <label for="code">Nome</label>
-					        <h:inputText type="text" class="form-control" value="#{controller.pedido.nome}" />
-					    </div>
+		      	<div id="conteudo" class="centro">
+					<h1>::Bem vindo a nossa Brain</h1>
+					<h2>::Vai um lanche ai?</h2>
+					<img src="img/lanche.jpg" alt="..." class="img-rounded" />
+					<br />
+					<a class="btn btn-primary" href="inserir.xhtml" >Fazer pedido</a>
+					<br />
+					<br />
+					<a class="btn btn-primary" href="lista.xhtml" >Listar pedidos</a>
 					
-					    <div class="form-group col-lg-1 ">
-					        <label for="code">Lanche</label>
-								<select>
-								  <option value="0">Selecione</option>
-								  <option value="Atum picado">Atum picado</option>
-								  <option value="Peru com tomate seco ">Peru com tomate seco </option>
-								  <option value="Berinjela temperada">Berinjela temperada</option>
-								  <option value="Frango desfiado">Frango desfiado </option>
-	  							  <option value="Frango desfiado c/ catupiry">Frango desfiado c/ catupiry</option>
-								  <option value="Presunto de chester">Presunto de chester</option>
-								</select>
-					    </div>
-					
-					    <div class="form-group col-lg-1 ">
-					        <label for="code">Bebida</label>
-								<select>
-								  <option value="0">Selecione</option>
-								  <option value="Coco + Uva">Coco + Uva</option>
-								  <option value="Abacaxi + Gengibre">Abacaxi + Gengibre</option>
-								  <option value="Arpoador">Arpoador</option>
-								  <option value="Atlântico">Atlântico</option>
-								  <option value="Bahamas">Bahamas</option>
-								  <option value="Carioca">Carioca</option>
-								</select>
-					    </div>
-					    <h:commandButton action="#{controller.enviar}" class="btn btn-default" value="enviar" />
-					</h:form>
 		      	</div>
 		       	<div id="footer">
 		
