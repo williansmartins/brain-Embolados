@@ -1,0 +1,1 @@
+$("li").last().children().css('background', 'none');
