@@ -1,24 +1,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.mkyong.common</groupId>
-	<artifactId>JavaServerFaces</artifactId>
-	<packaging>war</packaging>
-	<version>1.0-SNAPSHOT</version>
-	<name>JavaServerFaces Maven Webapp</name>
-	<url>http://maven.apache.org</url>
-
-	<dependencies>
-
-		<dependency>
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>brain</groupId>
+  <artifactId>brain</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>brain Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+		<jsf.version>2.1.7</jsf.version>
+		<jdk.version>1.6</jdk.version>
+  </properties>
+	
+  <dependencies>
+<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
-			<version>2.1.7</version>
+			<version>${jsf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
-			<version>2.1.7</version>
+			<version>${jsf.version}</version>
 		</dependency>
 
 		<dependency>
@@ -56,24 +60,27 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.26</version>
 		</dependency>
-            
-            
-
-	</dependencies>
-
+  </dependencies>
 	<build>
-		<finalName>JavaServerFaces</finalName>
-
+		<finalName>brain</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.1</version>
+				<version>2.3.2</version>
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
 				</configuration>
 			</plugin>
 		</plugins>
+		<resources>
+      		<resource>
+	        	<directory>src/main/resources/</directory>
+	        	<excludes>
+	        		<exclude>None</exclude>
+	        	</excludes>
+	      	</resource>
+	    </resources>
 	</build>
 </project>

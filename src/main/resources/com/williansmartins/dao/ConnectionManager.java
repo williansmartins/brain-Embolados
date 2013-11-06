@@ -23,7 +23,7 @@ public class ConnectionManager {
         private static final String DATABASE = "williansmartins";
         private static final String STR_CON = "jdbc:mysql://localhost:3306/" + DATABASE;
         private static final String USER = "root";
-        private static final String PASSWORD = "fiap";
+        private static final String PASSWORD = "";
         
         private static Logger log = Logger.getLogger(ConnectionManager.class);
         
