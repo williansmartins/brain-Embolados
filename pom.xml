@@ -77,8 +77,9 @@
 		<resources>
       		<resource>
 	        	<directory>src/main/resources/</directory>
+				<filtering>true</filtering>
 	        	<excludes>
-	        		<exclude>None</exclude>
+	        		<exclude>false</exclude>
 	        	</excludes>
 	      	</resource>
 	    </resources>
