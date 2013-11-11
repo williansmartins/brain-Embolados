@@ -3,6 +3,8 @@ package com.williansmartins.controller;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import com.williansmartins.dao.PedidoDAOJDBC;
+
 @ManagedBean
 @SessionScoped
 public class ControllerPedido {
@@ -15,7 +17,7 @@ public class ControllerPedido {
 	}
 	
 	public void enviar(){
-		System.out.println("opa" + nome);
+		new PedidoDAOJDBC().save(nome, lanche, bebida, null);
 	}
 
 	public String getNome() {
