@@ -76,11 +76,7 @@
 		</plugins>
 		<resources>
       		<resource>
-	        	<directory>src/main/resources/</directory>
-				<filtering>true</filtering>
-	        	<excludes>
-	        		<exclude>false</exclude>
-	        	</excludes>
+	        	<directory>src/main/resources/com</directory>
 	      	</resource>
 	    </resources>
 	</build>
