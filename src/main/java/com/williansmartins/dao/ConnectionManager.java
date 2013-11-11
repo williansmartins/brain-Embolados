@@ -1,5 +1,6 @@
 package com.williansmartins.dao;
 
+import com.williansmartins.exception.PersistenceException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -7,8 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.apache.log4j.Logger;
-
-import com.williansmartins.exception.PersistenceException;
 
 public class ConnectionManager {
 
