@@ -17,7 +17,7 @@ public class PedidoDAOJDBC{
 		private final static String TABLE = "PEDIDO_JDBC";
         private final static String CREATE_TABLE = "CREATE TABLE " + TABLE + " ( id int(11) NOT NULL AUTO_INCREMENT, nome varchar(255) DEFAULT NULL, lanche varchar(255) DEFAULT NULL, bebida varchar(255) DEFAULT NULL, PRIMARY KEY (id) );";
         private final static String INSERT_PEDIDO = "INSERT INTO  " + TABLE + "  (nome,lanche,bebida) VALUES (?,?,?)";
-        private final static String UPDATE_PEDIDO = "UPDATE  " + TABLE + "  SET nome = ?, lanches = ?, bebidas = ? WHERE id = ?";
+        private final static String UPDATE_PEDIDO = "UPDATE  " + TABLE + "  SET nome = ?, lanche = ?, bebida = ? WHERE id = ?";
         private final static String DELETE_PEDIDO = "DELETE FROM  " + TABLE + "  WHERE id = ?";
         private final static String GET_ALL_PEDIDOS = "SELECT * FROM  " + TABLE + " ";
         private final static String GET_PEDIDOS_BY_NOME = "SELECT * FROM  " + TABLE + "  WHERE nome like ?";
@@ -29,66 +29,64 @@ public class PedidoDAOJDBC{
                 Connection conn = null;
                 Statement stmt = null;
                 try {
-                        conn = ConnectionManager.getConnection();
-                        stmt = conn.createStatement();
-                        int r = stmt.executeUpdate(CREATE_TABLE);
-                        
-                        if (r > 0) {
-                                System.out.print("Criou a tabela:" + TABLE );
-                        }
+                    conn = ConnectionManager.getConnection();
+                    stmt = conn.createStatement();
+                    int r = stmt.executeUpdate(CREATE_TABLE);
+                    
+                    if (r > 0) {
+                            System.out.print("Criou a tabela:" + TABLE );
+                    }
                 } catch (SQLException e) {
-                        System.out.print("\nHouve um problema ao criar a tabela: " + e);
-                        throw new PersistenceException("Não foi possivel inicializar o banco de dados: " + CREATE_TABLE, e);
+                    System.out.print("\nHouve um problema ao criar a tabela: " + e);
+                    throw new PersistenceException("Não foi possivel inicializar o banco de dados: " + CREATE_TABLE, e);
                 } finally {
                         ConnectionManager.closeAll(conn, stmt);
                 }
         }
         
-        
-        public int save(String nome, String lanche, String bebida, Integer id) throws PersistenceException {
-        	 Integer idObjeto = null;
+        public int save(Pedido pedido) throws PersistenceException {
         	 try {
-                        conn = ConnectionManager.getConnection();
-                        if (id == null) {
-                                stmt = getStatementInsert(conn, nome, lanche, bebida);
-                        } else {
-                                stmt = getStatementUpdate(conn, nome, lanche, bebida, id);
-                        }
-                        stmt.executeUpdate();
-                        
-                        ResultSet rs = stmt.getGeneratedKeys();
+                    conn = ConnectionManager.getConnection();
+                    if (pedido.getId() == null) {
+                            stmt = getStatementInsert(conn, pedido);
+                    } else {
+                            stmt = getStatementUpdate(conn, pedido);
+                    }
+                    stmt.executeUpdate();
+                    
+                    ResultSet rs = stmt.getGeneratedKeys();
 
-						while(rs.next()){
-                         idObjeto = rs.getInt(1);
-                        }
+					while(rs.next()){
+						pedido.setId(rs.getInt(1));
+                    }
 
-                        conn.commit();
-                        System.out.print("Pedido foi salvo");
+                    conn.commit();
+                    System.out.print("Pedido foi salvo");
                 } catch (SQLException e) {
-                        try { conn.rollback(); } catch (Exception sx) {}
-                        String errorMsg = "Erro ao salvar Pedido!";
-                        System.out.print(errorMsg +  e);
-                        throw new PersistenceException(errorMsg, e);
+                    try { conn.rollback(); } catch (Exception sx) {}
+                    String errorMsg = "Erro ao salvar Pedido!";
+                    System.out.print(errorMsg +  e);
+                    throw new PersistenceException(errorMsg, e);
                 } finally {
-                        ConnectionManager.closeAll(conn, stmt);
+                    ConnectionManager.closeAll(conn, stmt);
                 }
-        	 return idObjeto;
+        	 return pedido.getId();
         }
         
-        private PreparedStatement getStatementInsert(Connection conn, String nome, String lanche, String bebida) throws SQLException {
+        private PreparedStatement getStatementInsert(Connection conn, Pedido pedido) throws SQLException {
                 PreparedStatement stmt = createStatementWithLog(conn, INSERT_PEDIDO);
-                stmt.setString(1, nome);
-                stmt.setString(2, lanche);
-                stmt.setString(3, bebida);
+                stmt.setString(1, pedido.getNome());
+                stmt.setString(2, pedido.getLanche());
+                stmt.setString(3, pedido.getBebida());
                 return stmt;
         }
         
-        private PreparedStatement getStatementUpdate(Connection conn, String nome, String lanche, String bebida, Integer id) throws SQLException {
+        private PreparedStatement getStatementUpdate(Connection conn, Pedido pedido) throws SQLException {
                 PreparedStatement stmt = createStatementWithLog(conn, UPDATE_PEDIDO);
-                stmt.setString(1, nome);
-                stmt.setString(2, lanche);
-                stmt.setString(3, bebida);
-                stmt.setInt(5, id);
+                stmt.setString(1, pedido.getNome());
+                stmt.setString(2, pedido.getLanche());
+                stmt.setString(3, pedido.getBebida());
+                stmt.setInt(4, pedido.getId());
                 return stmt;
         }
 
@@ -100,50 +98,50 @@ public class PedidoDAOJDBC{
       Pedido m = null;
       
       try {
-              conn = ConnectionManager.getConnection();
-              stmt = createStatementWithLog(conn, GET_PEDIDO_BY_ID);
-              stmt.setInt(1, id);
-              rs = stmt.executeQuery();
-              
-              if (rs.next()) {
-                      String nome = rs.getString("nome");
-                      String lanche = rs.getString("lanche");
-                      String bebida = rs.getString("bebida");
-                      
-                      m = new Pedido(id, nome, lanche, bebida);
-              }
-              return m;
+          conn = ConnectionManager.getConnection();
+          stmt = createStatementWithLog(conn, GET_PEDIDO_BY_ID);
+          stmt.setInt(1, id);
+          rs = stmt.executeQuery();
+          
+          if (rs.next()) {
+                  String nome = rs.getString("nome");
+                  String lanche = rs.getString("lanche");
+                  String bebida = rs.getString("bebida");
+                  
+                  m = new Pedido(id, nome, lanche, bebida);
+          }
+          return m;
       } catch (SQLException e) {
-              String errorMsg = "Erro ao consultar pedido por id!";
-              System.out.print(errorMsg +  e);
-              throw new PersistenceException(errorMsg, e);
+          String errorMsg = "Erro ao consultar pedido por id!";
+          System.out.print(errorMsg +  e);
+          throw new PersistenceException(errorMsg, e);
       } finally {
-              ConnectionManager.closeAll(conn, stmt, rs);
+          ConnectionManager.closeAll(conn, stmt, rs);
       }
 }
         
-//        public void remove(Pedido m) throws PersistenceException {
-//                if (m == null || m.getId() == null) {
-//                	 throw new PersistenceException("Informe a mercadoria para exclusao!");
-//                }
-//                Connection conn = null;
-//                PreparedStatement stmt = null;
-//                try {
-//                        conn = ConnectionManager.getConnection();
-//                        stmt = createStatementWithLog(conn, DELETE_PEDIDO);
-//                        stmt.setInt(1, m.getId());
-//                        stmt.executeUpdate();
-//                        conn.commit();
-//                        System.out.print("Pedido foi excluida");
-//                } catch (SQLException e) {
-//                        try { conn.rollback(); } catch (Exception sx) {}
-//                        String errorMsg = "Erro ao excluir Pedido!";
-//                        System.out.print(errorMsg +  e);
-//                        throw new PersistenceException(errorMsg, e);
-//                }finally{
-//                        ConnectionManager.closeAll(conn, stmt);
-//                }
-//        }
+        public void remove(Integer id) throws PersistenceException {
+                if ( id == null ) {
+                	 throw new PersistenceException("Informe o ID para exclusao!");
+                }
+                Connection conn = null;
+                PreparedStatement stmt = null;
+                try {
+                    conn = ConnectionManager.getConnection();
+                    stmt = createStatementWithLog(conn, DELETE_PEDIDO);
+                    stmt.setInt(1, id);
+                    stmt.executeUpdate();
+                    conn.commit();
+                    System.out.print("Pedido foi excluida");
+                } catch (SQLException e) {
+                    try { conn.rollback(); } catch (Exception sx) {}
+                    String errorMsg = "Erro ao excluir Pedido!";
+                    System.out.print(errorMsg +  e);
+                    throw new PersistenceException(errorMsg, e);
+                }finally{
+                    ConnectionManager.closeAll(conn, stmt);
+                }
+        }
 //        
 //        
 //        public Pedido findById(Integer id) throws PersistenceException {
