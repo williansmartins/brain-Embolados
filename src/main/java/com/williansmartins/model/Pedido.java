@@ -7,6 +7,18 @@ public class Pedido {
 	String lanche;
 	String bebida;
 	
+	public Pedido() {
+		
+	}
+
+	public Pedido(Integer id, String nome, String lanche, String bebida) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.lanche = lanche;
+		this.bebida = bebida;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -36,14 +48,6 @@ public class Pedido {
 	}
 
 	public void setBebida(String bebida) {
-		this.bebida = bebida;
-	}
-
-	public Pedido(Integer id, String nome, String lanche, String bebida) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.lanche = lanche;
 		this.bebida = bebida;
 	}
 
