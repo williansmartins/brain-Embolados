@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.williansmartins.exception.PersistenceException;
 import com.williansmartins.model.Pedido;
@@ -177,24 +179,24 @@ public class PedidoDAOJDBC{
 //        }
 //        
 //        
-//        public List<Pedido> getAll() throws PersistenceException {
-//                Connection conn = null;
-//                PreparedStatement stmt = null;
-//                ResultSet rs = null;
-//                
-//                try {
-//                        conn = ConnectionManager.getConnection();
-//                        stmt = createStatementWithLog(conn, GET_ALL_PEDIDOS);
-//                        rs = stmt.executeQuery();
-//                        
-//                        return toPedidos(rs);
-//                } catch (SQLException e) {
-//                        String errorMsg = "Erro ao consultar todas as pedidos!";
-//                        throw new PersistenceException(errorMsg, e);
-//                } finally {
-//                        ConnectionManager.closeAll(conn, stmt, rs);
-//                }
-//        }
+        public List<Pedido> findAll() throws PersistenceException {
+                Connection conn = null;
+                PreparedStatement stmt = null;
+                ResultSet rs = null;
+                
+                try {
+                        conn = ConnectionManager.getConnection();
+                        stmt = createStatementWithLog(conn, GET_ALL_PEDIDOS);
+                        rs = stmt.executeQuery();
+                        
+                        return toPedidos(rs);
+                } catch (SQLException e) {
+                        String errorMsg = "Erro ao consultar todas as pedidos!";
+                        throw new PersistenceException(errorMsg, e);
+                } finally {
+                        ConnectionManager.closeAll(conn, stmt, rs);
+                }
+        }
 //        
 //        
 //        @SuppressWarnings("unchecked")
@@ -223,18 +225,18 @@ public class PedidoDAOJDBC{
 //                }
 //        }
 //        
-//        private List<Pedido> toPedidos(ResultSet rs) throws SQLException {
-//                List<Pedido> lista = new ArrayList<Pedido>();
-//                while (rs.next()) {
-//                        int id = rs.getInt("id");
-//                        String nome = rs.getString("nome");
-//                        String lanche = rs.getString("lanche");
-//                        String bebida = rs.getString("bebida");
-//                        
-//                        lista.add(new Pedido(id, nome, lanche, bebida));
-//                }
-//                return lista;
-//        }
+        private List<Pedido> toPedidos(ResultSet rs) throws SQLException {
+                List<Pedido> lista = new ArrayList<Pedido>();
+                while (rs.next()) {
+                        int id = rs.getInt("id");
+                        String nome = rs.getString("nome");
+                        String lanche = rs.getString("lanche");
+                        String bebida = rs.getString("bebida");
+                        
+                        lista.add(new Pedido(id, nome, lanche, bebida));
+                }
+                return lista;
+        }
 //
         private static PreparedStatement createStatementWithLog(Connection conn, String sql) throws SQLException{
                 if (conn == null)

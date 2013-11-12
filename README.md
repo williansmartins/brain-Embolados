@@ -5,40 +5,33 @@
 
 ## <a name='TOC'>Conteúdo</a>
 
-  1. [Problemas](#types)
-  1. [Objects](#objects)
+  1. [Problemas e soluções](#types)
+  1. [Detalhes da implementação](#implementacao)
   
-## <a name='types'>Types</a>
+## <a name='types'>Problemas</a>
 
-  - **Primitives**: When you access a primitive type you work directly on its value
+  - **Problema1**: JSF Controller não é alcançado nunca!
 
-    + `string`
-    + `number`
-    + `boolean`
-    + `null`
-    + `undefined`
+    + `Faltava o <h:form>`
+    + `Pastas com pacote incorretos`
+    + `Path de source mal mapeado`
 
-    ```javascript
-    var foo = 1,
-        bar = foo;
+  - **Problema2**: Maven não fazia o Build
 
-    bar = 9;
+    + `Estava apontando para uma versão de uma dependência que não rolava`
 
-    console.log(foo, bar); // => 1, 9
-    ```
-  - **Complex**: When you access a complex type you work on a reference to its value
+  - **Problema3**: A lista de pedidos não está sendo chamada no Datatable
 
-    + `object`
-    + `array`
-    + `function`
+    + `Apanhei 1 hora neste cara`
+    + `Testei com outro Bean de exemplo foi numa boa, o problema é meu Bean`
+    + `No final o Getter do atributo foi gerado com o L minúsculo, não fazendo bind com o elemento na VIEW`
 
-    ```javascript
-    var foo = [1, 2],
-        bar = foo;
-
-    bar[0] = 9;
-
-    console.log(foo[0], bar[0]); // => 9, 9
-    ```
 
     **[[⬆]](#TOC)**
+    
+## <a name='implementacao'>Detalhes da implementação</a>
+
+    + `O MVC foi implementado com JSF`
+    + `Banco de dados MYSQL`
+    + `Persistência com JDBC`    
+    + `Controller já aciona a camada DAO`    

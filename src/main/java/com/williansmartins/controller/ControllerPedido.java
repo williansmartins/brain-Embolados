@@ -1,11 +1,14 @@
 package com.williansmartins.controller;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import com.williansmartins.dao.PedidoDAOJDBC;
+import com.williansmartins.model.Pedido;
 
-@ManagedBean
+@ManagedBean(name="pedidos")
 @SessionScoped
 public class ControllerPedido {
 	
@@ -14,16 +17,14 @@ public class ControllerPedido {
 	private String bebida;
 	
 	public ControllerPedido(){
+		
 	}
 	
-	public void enviar(){
+	public String save(){
 		new PedidoDAOJDBC().save(nome, lanche, bebida, null);
+		return "lista.xhtml";
 	}
 	
-	public void metodo(){
-		System.out.println("nome: " + nome);
-	}
-
 	public String getNome() {
 		return nome;
 	}
@@ -46,6 +47,10 @@ public class ControllerPedido {
 
 	public void setBebida(String bebida) {
 		this.bebida = bebida;
+	}
+
+	public List<Pedido> getPedidoList() {
+		return new PedidoDAOJDBC().findAll();
 	}
 	
 }

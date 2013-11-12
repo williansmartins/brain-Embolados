@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 	<h:head>
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	    <title>Brain</title>
@@ -30,62 +31,49 @@
 					<h1 class="centro">Listagem de Pedidos</h1>
 					
 					<h:form role="form" class="table-responsive">
-						<table class="table table-hover" id="example">
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>Nome</th>
-								<th>Lanche</th>
-								<th>Suco</th>
-								<th>Ações</th>
-							</tr>
-						</thead>
-							<tbody>
-								<tr>
-									<td>1</td>
-									<td>row 1, cell 1</td>
-									<td>row 1, cell 1</td>
-									<td>row 1, cell 2</td>
-									<td>
-										<div class="btn-group">
-										  <button type="button" class="btn btn-default">Editar</button>
-										  <button type="button" class="btn btn-default">Excluir</button>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>row 2, cell 1</td>
-									<td>row 2, cell 1</td>
-									<td>row 2, cell 2</td>
-									<td>
-										<div class="btn-group">
-										  <button type="button" class="btn btn-default">Editar</button>
-										  <button type="button" class="btn btn-default">Excluir</button>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>row 1, cell 1</td>
-									<td>row 1, cell 1</td>
-									<td>row 1, cell 2</td>
-									<td>
-										<div class="btn-group">
-										  <button type="button" class="btn btn-default">Editar</button>
-										  <button type="button" class="btn btn-default">Excluir</button>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+			    		<h:dataTable value="#{pedidos.pedidoList}" var="o"
+			    			styleClass="table table-striped"
+			    			headerClass="order-table-header"
+			    			rowClasses="order-table-odd-row,order-table-even-row" >
+			 
+			    			<h:column>
+			    				<f:facet name="header">ID</f:facet>
+			    				#{o.id}
+			    			</h:column>
+			    			
+			    			<h:column>
+			    				<!-- column header -->
+			    				<f:facet name="header">Nome</f:facet>
+			    				<!-- row record -->
+			    				#{o.nome}
+			    			</h:column>
+			 
+			    			<h:column>
+			    				<f:facet name="header">Lanche</f:facet>
+			    				#{o.lanche}
+			    			</h:column>
+			 
+			    			<h:column>
+			    				<f:facet name="header">Bebida</f:facet>
+			    				#{o.bebida}
+			    			</h:column>
+			 
+			    			<h:column>
+			    				<f:facet name="header">Ações</f:facet>
+			    				<h:commandButton styleClass="btn btn-primary" value="Editar"></h:commandButton>
+			    				 &spades;
+			    				<h:commandButton styleClass="btn btn-primary" value="Excluir"></h:commandButton>
+			    			</h:column>
+			 
+			 
+			    		</h:dataTable>
 						
 					</h:form>
 		      	</div>
 		       	<div id="footer">
 					<div class="dataTables_filter" id="">
-						<a class="btn btn-primary btn-lg" role="button" href="index.xhtml">Voltar</a>
-						<a class="btn btn-primary btn-lg" role="button" href="inserir.xhtml">Inserir</a>
+						<a class="btn btn-primary" role="button" href="index.xhtml">Voltar</a>
+						<a class="btn btn-primary" role="button" href="inserir.xhtml">Inserir</a>
 					</div>
 		      	</div>
 		  	</div>
