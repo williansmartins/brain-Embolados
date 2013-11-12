@@ -19,6 +19,10 @@ public class ControllerPedido {
 	public void enviar(){
 		new PedidoDAOJDBC().save(nome, lanche, bebida, null);
 	}
+	
+	public void metodo(){
+		System.out.println("nome: " + nome);
+	}
 
 	public String getNome() {
 		return nome;

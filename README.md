@@ -1,44 +1,13 @@
-brain
+# Pedidos no "Embolados"
 =====
-
-# Airbnb JavaScript Style Guide() {
-
-*A mostly reasonable approach to JavaScript*
+*Uma aplicação para ser apresentada na BRAINSTORM da DIGITALBOX*
 
 
-## <a name='TOC'>Table of Contents</a>
+## <a name='TOC'>Conteúdo</a>
 
-  1. [Types](#types)
+  1. [Problemas](#types)
   1. [Objects](#objects)
-  1. [Arrays](#arrays)
-  1. [Strings](#strings)
-  1. [Functions](#functions)
-  1. [Properties](#properties)
-  1. [Variables](#variables)
-  1. [Hoisting](#hoisting)
-  1. [Conditional Expressions & Equality](#conditionals)
-  1. [Blocks](#blocks)
-  1. [Comments](#comments)
-  1. [Whitespace](#whitespace)
-  1. [Commas](#commas)
-  1. [Semicolons](#semicolons)
-  1. [Type Casting & Coercion](#type-coercion)
-  1. [Naming Conventions](#naming-conventions)
-  1. [Accessors](#accessors)
-  1. [Constructors](#constructors)
-  1. [Events](#events)
-  1. [Modules](#modules)
-  1. [jQuery](#jquery)
-  1. [ES5 Compatibility](#es5)
-  1. [Testing](#testing)
-  1. [Performance](#performance)
-  1. [Resources](#resources)
-  1. [In the Wild](#in-the-wild)
-  1. [Translation](#translation)
-  1. [The JavaScript Style Guide Guide](#guide-guide)
-  1. [Contributors](#contributors)
-  1. [License](#license)
-
+  
 ## <a name='types'>Types</a>
 
   - **Primitives**: When you access a primitive type you work directly on its value
