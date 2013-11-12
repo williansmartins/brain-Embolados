@@ -31,12 +31,12 @@
 					<h:form >
 					    <div class="">
 					        <label for="code">Nome</label>
-					        <h:inputText type="text" class="form-control" value="#{pedidos.nome}" />
+					        <h:inputText type="text" class="form-control" value="#{pedidos.pedido.nome}" />
 					    </div>
 					
 					    <div class="">
 					        <label for="code">Lanche</label>
-								<h:selectOneMenu value="#{pedidos.lanche}" class="form-control">
+								<h:selectOneMenu value="#{pedidos.pedido.lanche}" class="form-control">
 									  <f:selectItem itemValue="0" itemLabel="Selecione"/>
 									  <f:selectItem itemValue="Atum picado" itemLabel="Atum picado"/>
 									  <f:selectItem itemValue="Peru com tomate seco" itemLabel="Peru com tomate seco"/>
@@ -49,7 +49,7 @@
 						<br />
 					    <div class="">
 					        <label for="code">Bebida</label>
-								<h:selectOneMenu value="#{pedidos.bebida}" class="form-control" >
+								<h:selectOneMenu value="#{pedidos.pedido.bebida}" class="form-control" >
 								  <f:selectItem itemValue="0" itemLabel="Selecione"/>
 								  <f:selectItem itemValue="Coco e Uva" itemLabel="Coco e Uva"/>
 								  <f:selectItem itemValue="Abacaxi e Gengibre" itemLabel="Abacaxi e Gengibre"/>
@@ -60,7 +60,9 @@
 								</h:selectOneMenu>
 					    </div>
 					    <br />
-					    <h:commandButton action="#{pedidos.save}" class="btn btn-default " value="enviar" />
+					    <h:commandButton action="#{pedidos.save}" class="btn btn-primary " value="Save" />
+					    <i class="icon-search icon-white"></i>
+					    <h:commandButton action="#{pedidos.home}" class="btn btn-primary " value="Home" />
 					</h:form>
 		      	</div>
 		       	<div id="footer">
