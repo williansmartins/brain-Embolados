@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html">
 	<h:head>
@@ -13,28 +14,22 @@
 	</h:head>
 	<body> 
 		<div class="container wrapper" >                  
-       		<div id="menu"> 
-	          	<div id="holder">
-	                   <ul class="itens">      
-	                      <li onclick="abrirPag('home.php');"><a href="#home" id="inicio">Antes - JDBC</a></li>                       
-	                      <li onclick="abrirPag('curriculuns.html');"><a href="#curriculuns">Hoje - ORM</a></li>                 
-	                      <li onclick="abrirPag('portifolio.php','1');"><a href="#portifolio">Amanhã - Generic</a></li>                     
-	                   </ul>  
-	          	</div>
-	          </div>	
-	          <div id="vitrine">
-	          </div>
-		      <div id="palco">
-		      	<div id="conteudo" class="centro">
-					<h1>::Bem vindo a nossa Brain</h1>
-					<h2>::Vai um lanche ai?</h2>
-					<img src="img/lanche.jpg" alt="..." class="img-rounded" />
-					<br />
-					<a class="btn btn-primary" href="inserir.xhtml" >Fazer pedido</a>
-					<br />
-					<br />
-					<a class="btn btn-primary" href="lista.xhtml" >Listar pedidos</a>
-					
+     		<div id="menu"> 
+	        </div>	
+	        <div id="vitrine">
+	        </div>
+		    <div id="palco">
+		     	<div id="conteudo" class="centro">
+		      		<h:form>
+						<h1>::Bem vindo a nossa Brain</h1>
+						<h2>::Vai um lanche ai?</h2>
+						<img src="img/lanche.jpg" alt="..." class="img-rounded" />
+						<br />
+	    				<h:commandButton styleClass="btn btn-primary" value="Insert" action="#{pedidos.prepareInsert}" />				
+	    				<br />
+	    				<br />
+	    				<h:commandButton styleClass="btn btn-primary" value="List All" action="#{pedidos.list}" />	
+		      		</h:form>
 		      	</div>
 		       	<div id="footer">
 		
