@@ -26,6 +26,10 @@
     + `Testei com outro Bean de exemplo foi numa boa, o problema é meu Bean`
     + `No final o Getter do atributo foi gerado com o L minúsculo, não fazendo bind com o elemento na VIEW`
 
+  - **Problema4**: Ao transportar o projeto para outro computador, o server não sobe corretamente
+
+    + `Estou olhando o build path`
+
 
     **[[⬆]](#TOC)**
     
