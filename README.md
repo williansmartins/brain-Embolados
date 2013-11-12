@@ -29,6 +29,7 @@
   - **Problema4**: Ao transportar o projeto para outro computador, o server não sobe corretamente
 
     + `Estou olhando o build path`
+    + `Tentei várias coisas, mas no final, faltava add a pasta webapp no deployment assembly`
 
 
     **[[⬆]](#TOC)**
