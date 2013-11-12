@@ -14,15 +14,8 @@
 	</h:head>
 	<body> 
 		<div class="wrapper" >                  
-       		<div id="menu"> 
-	          	<div id="holder">
-	                   <ul class="itens">      
-	                      <li onclick="abrirPag('home.php');"><a href="#home" id="inicio">Antes - JDBC</a></li>                       
-	                      <li onclick="abrirPag('curriculuns.html');"><a href="#curriculuns">Hoje - ORM</a></li>                 
-	                      <li onclick="abrirPag('portifolio.php','1');"><a href="#portifolio">Amanhã - Generic</a></li>                     
-	                   </ul>  
-	          	</div>
-	          </div>	
+     		<div id="menu"> 
+	        </div>	
 	          <div id="vitrine">
 	          </div>
 		      <div id="palco">
@@ -30,9 +23,9 @@
 						
 					<h1 class="centro">Listagem de Pedidos</h1>
 					
-					<h:form role="form" class="table-responsive">
+					<h:form id="form" role="form" class="table-responsive">
 			    		<h:dataTable value="#{pedidos.pedidoList}" var="o"
-			    			styleClass="table table-striped"
+			    			styleClass="table table-striped tabela"
 			    			headerClass="order-table-header"
 			    			rowClasses="order-table-odd-row,order-table-even-row" >
 			 
@@ -60,21 +53,24 @@
 			 
 			    			<h:column>
 			    				<f:facet name="header">Ações</f:facet>
-			    				<h:commandButton styleClass="btn btn-primary" value="Editar"></h:commandButton>
-			    				 &spades;
-			    				<h:commandButton styleClass="btn btn-primary" value="Excluir"></h:commandButton>
+			    				<h:commandButton styleClass="btn btn-success" value="Edit"  action="#{pedidos.incAlt()}">
+			    					<f:setPropertyActionListener target="#{pedidos.pedido}" value="#{o}"></f:setPropertyActionListener>
+			    				</h:commandButton>
+			    				 &nbsp;
+			    				<h:commandButton styleClass="btn btn-danger" value="Delete" action="#{pedidos.remove()}">
+			    					<f:setPropertyActionListener target="#{pedidos.pedido}" value="#{o}"></f:setPropertyActionListener>
+			    				</h:commandButton>
 			    			</h:column>
 			 
 			 
 			    		</h:dataTable>
 						
+	    				<h:commandButton styleClass="btn btn-primary" value="Insert" action="#{pedidos.prepareInsert}" />	
+	    				&nbsp;
+	    				<h:commandButton styleClass="btn btn-primary" value="Home" action="#{pedidos.home}" />	
 					</h:form>
 		      	</div>
 		       	<div id="footer">
-					<div class="dataTables_filter" id="">
-						<a class="btn btn-primary" role="button" href="index.xhtml">Voltar</a>
-						<a class="btn btn-primary" role="button" href="inserir.xhtml">Inserir</a>
-					</div>
 		      	</div>
 		  	</div>
 	  	</div>
