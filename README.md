@@ -34,11 +34,10 @@
 
     **[[⬆]](#TOC)**
     
-## <a name='types'>Problemas</a>
+## <a name='implementacao'>Detalhes da implementação</a>
 
-  - **Problema1**: JSF Controller não é alcançado nunca!
 
-    + `Faltava o <h:form>`
+    + `O MVC foi implementado com JSF`
     + `Pastas com pacote incorretos`
     + `Path de source mal mapeado`
 
