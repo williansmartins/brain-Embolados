@@ -36,7 +36,7 @@
     
 ## <a name='implementacao'>Detalhes da implementação</a>
 
-
+-
     + `O MVC foi implementado com JSF`
     + `Pastas com pacote incorretos`
     + `Path de source mal mapeado`
