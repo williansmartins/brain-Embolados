@@ -34,7 +34,14 @@
   - **Problema5**: Hibernate, não está baixando as dependências pelo maven
 
     + `estou trocando a dependencia`
-    + ``
+    + `cansei de trocar pelo maven e coloquei na mao, na pasta lib`
+    + `fui acrescentando as libs por demanda` 
+    + `Jboss loggin`
+    + `Jboss javax transaction` 
+    + `Persistence unit`
+    + `javassist`
+    + `antlr(estava dando pau na hora de fazer o findall)`
+
 
 
     **[[⬆]](#TOC)**
