@@ -36,7 +36,6 @@
     
 ## <a name='implementacao'>Detalhes da implementação</a>
   1. *O MVC foi implementado com JSF*
-  1. *O MVC foi implementado com JSF*
   1. *Banco de dados MYSQL*
   1. *Persistência com JDBC*
   1. *Controller já aciona a camada DAO*
