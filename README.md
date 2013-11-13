@@ -34,7 +34,7 @@
 
     **[[⬆]](#TOC)**
     
-## <a name='implementacao'>Detalhes da implementação</a>
+## <a name='implementacao'>Detalhes da implementacao</a>
 
     + `O MVC foi implementado com JSF`
     + `Banco de dados MYSQL`
