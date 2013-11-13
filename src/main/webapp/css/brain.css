@@ -16,5 +16,5 @@ h1.centro{
 	width: 700px;
 	height: 250px!important;
 /* 	outline: solid 1px red; */
-	overflow: scroll;
+	overflow: auto;
 }
