@@ -31,6 +31,11 @@
     + `Estou olhando o build path`
     + `Tentei várias coisas, mas no final, faltava add a pasta webapp no deployment assembly`
 
+  - **Problema5**: Hibernate, não está baixando as dependências pelo maven
+
+    + `estou trocando a dependencia`
+    + ``
+
 
     **[[⬆]](#TOC)**
     

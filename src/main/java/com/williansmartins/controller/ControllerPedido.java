@@ -5,60 +5,61 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import com.williansmartins.dao.JPADAO;
 import com.williansmartins.dao.PedidoDAOJDBC;
-import com.williansmartins.model.Pedido;
+import com.williansmartins.model.PedidoEntity;
 
 @ManagedBean(name="pedidos")
 @SessionScoped
 public class ControllerPedido {
 	
-	private Pedido pedido;
+	private PedidoEntity pedido;
 	
 	public ControllerPedido(){
-		pedido = new Pedido();
+		pedido = new PedidoEntity();
 	}
 	
 	public String home(){
-		pedido = new Pedido();
+		pedido = new PedidoEntity();
 		return "index.xhtml?faces-redirect=true";
 	}
 	
 	public String list(){
-		pedido = new Pedido();
+		pedido = new PedidoEntity();
 		return "lista.xhtml?faces-redirect=true";
 	}
 	
 	public String save(){
-		new PedidoDAOJDBC().save(pedido);
-		pedido = new Pedido();
+		new JPADAO().insert(pedido);
+		pedido = new PedidoEntity();
 		return "lista.xhtml";
 	}
 	
 	public String remove(){
-		new PedidoDAOJDBC().remove(pedido.getId());
+		new JPADAO().delete(pedido);
 		return "lista.xhtml";
 	}	
 	
 	public String incAlt(){
-		pedido = new PedidoDAOJDBC().findById(pedido.getId());
+		pedido = new JPADAO().findById(pedido);
 		return "inserir.xhtml";
 	}	
 	
 	public String prepareInsert(){
-		pedido = new Pedido();
+		pedido = new PedidoEntity();
 		System.out.println("insert");
 		return "inserir.xhtml?faces-redirect=true";
 	}	
 	
-	public List<Pedido> getPedidoList() {
-		return new PedidoDAOJDBC().findAll();
+	public List<PedidoEntity> getPedidoList() {
+		return new JPADAO().findAll();
 	}
 
-	public Pedido getPedido() {
+	public PedidoEntity getPedido() {
 		return pedido;
 	}
 
-	public void setPedido(Pedido pedido) {
+	public void setPedido(PedidoEntity pedido) {
 		this.pedido = pedido;
 	}
 	
