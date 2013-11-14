@@ -59,4 +59,4 @@
 **[[⬆]](#TOC)**
 
 ## <a name='TOC'>Referências</a>
-+http://www.caelum.com.br/apostila-java-web/uma-introducao-pratica-ao-jpa-com-hibernate/#14-4-mapeando-uma-classe-tarefa-para-nosso-banco-de-dados
++ 'http://www.caelum.com.br/apostila-java-web/uma-introducao-pratica-ao-jpa-com-hibernate/#14-4-mapeando-uma-classe-tarefa-para-nosso-banco-de-dados'
