@@ -6,7 +6,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import com.williansmartins.dao.JPADAO;
-import com.williansmartins.dao.PedidoDAOJDBC;
 import com.williansmartins.model.PedidoEntity;
 
 @ManagedBean(name="pedidos")

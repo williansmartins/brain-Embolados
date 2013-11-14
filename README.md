@@ -42,6 +42,10 @@
     + `javassist`
     + `antlr(estava dando pau na hora de fazer o findall)`
 
+  - **Problema6**: Hibernate, não encontra o provedor de persistência
+
+    + `pode ter a ver com o path do arquivo persistence.xml`
+    + `faltava a dependência entity-manager do HIBERNATE (que burro! dá zero pra ele)`
 
 
     **[[⬆]](#TOC)**
@@ -53,3 +57,6 @@
   1. *Controller já aciona a camada DAO*
 
 **[[⬆]](#TOC)**
+
+## <a name='TOC'>Referências</a>
++http://www.caelum.com.br/apostila-java-web/uma-introducao-pratica-ao-jpa-com-hibernate/#14-4-mapeando-uma-classe-tarefa-para-nosso-banco-de-dados
