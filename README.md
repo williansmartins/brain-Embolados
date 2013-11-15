@@ -61,3 +61,4 @@
 
 ## <a name='bibliografia'>Bibliografia</a>
 + http://www.caelum.com.br/apostila-java-web/uma-introducao-pratica-ao-jpa-com-hibernate/#14-4-mapeando-uma-classe-tarefa-para-nosso-banco-de-dados
++ http://wehavescience.com/2013/02/24/criando-um-dao-generico-com-hibernate/
