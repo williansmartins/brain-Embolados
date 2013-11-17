@@ -9,7 +9,7 @@
 		    
 		    <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/williansmartins" /> 
 		    <property name="hibernate.connection.username" value="root" /> 
-		    <property name="hibernate.connection.password" value="" /> 
+		    <property name="hibernate.connection.password" value="fiap" /> 
 
 			<property name="hibernate.show_sql" value="true" />   <!-- Mostra no console as mensagem que o MySql retorna -->
 		    <property name="hibernate.hbm2ddl.auto" value="update" /> <!-- Cria uma tabela caso a mesma nao exista no banco de dados --> 
