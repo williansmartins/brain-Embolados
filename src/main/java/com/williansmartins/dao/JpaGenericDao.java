@@ -49,7 +49,7 @@ public class JpaGenericDao<T extends Serializable> implements Dao<T>{
 	}
 	@Override
 	
-	public List<T> findEspecific(Long id) {
+	public List<T> findEspecific(Integer id) {
 		entityManager = getEntityManager();	
 		entityManager.getTransaction().begin();
 		String jpql = "select a from Avaliacao a";
@@ -68,7 +68,7 @@ public class JpaGenericDao<T extends Serializable> implements Dao<T>{
 	}
 	@Override
 	
-	public void delete(Long primaryKey) throws Exception {
+	public void delete(Integer primaryKey) {
 		entityManager = getEntityManager();
 		try{
 			T entity = (T) entityManager.find(getGenericClass(), primaryKey);
@@ -77,7 +77,6 @@ public class JpaGenericDao<T extends Serializable> implements Dao<T>{
 			entityManager.getTransaction().commit();
 		}catch (Exception e) {
 			System.out.println(">> "+e.getMessage());
-			throw new Exception("\n" + e.getMessage()+ " \n " +e.getCause()+e.getStackTrace());
 		}
 		finally {
 			entityManager.close();
@@ -85,7 +84,7 @@ public class JpaGenericDao<T extends Serializable> implements Dao<T>{
 	}
 
 	@Override
-	public T findById(Long primaryKey) {
+	public T findById(Integer primaryKey) {
 		entityManager = getEntityManager();
 		T entity = null;
 		try {
@@ -107,7 +106,7 @@ public class JpaGenericDao<T extends Serializable> implements Dao<T>{
 			entityManager.getTransaction().begin();
 			entityManager.merge(entity);
 			entityManager.getTransaction().commit();
-//			return true; opção para exibir se foi atualizado com sucesso
+//			return true; opï¿½ï¿½o para exibir se foi atualizado com sucesso
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			entityManager.getTransaction().rollback();
@@ -127,10 +126,10 @@ public class JpaGenericDao<T extends Serializable> implements Dao<T>{
 	}
 	
 	public EntityManager getEntityManager() {
-//		if(entityManager == null || !(entityManager.isOpen())){
+		if(entityManager == null || !(entityManager.isOpen())){
 			return emf.createEntityManager();
-//		}
-//		return entityManager;
+		}
+		return entityManager;
 	}
 	public  Boolean verificaUsuario(String valor){
 		entityManager = getEntityManager();	

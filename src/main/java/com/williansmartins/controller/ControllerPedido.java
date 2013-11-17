@@ -5,7 +5,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import com.williansmartins.dao.JPADAO;
+import com.williansmartins.dao.JpaGenericDao;
+import com.williansmartins.dao.PedidoDaoImpl;
 import com.williansmartins.model.PedidoEntity;
 
 @ManagedBean(name="pedidos")
@@ -13,6 +14,7 @@ import com.williansmartins.model.PedidoEntity;
 public class ControllerPedido {
 	
 	private PedidoEntity pedido;
+	private JpaGenericDao<PedidoEntity> dao = new PedidoDaoImpl();
 	
 	public ControllerPedido(){
 		pedido = new PedidoEntity();
@@ -29,18 +31,18 @@ public class ControllerPedido {
 	}
 	
 	public String save(){
-		new JPADAO().insert(pedido);
+		dao.insert(pedido);
 		pedido = new PedidoEntity();
 		return "lista.xhtml";
 	}
 	
 	public String remove(){
-		new JPADAO().delete(pedido);
+		dao.delete(pedido.getId());
 		return "lista.xhtml";
 	}	
 	
 	public String incAlt(){
-		pedido = new JPADAO().findById(pedido);
+		pedido = dao.findById(pedido.getId());
 		return "inserir.xhtml";
 	}	
 	
@@ -51,7 +53,7 @@ public class ControllerPedido {
 	}	
 	
 	public List<PedidoEntity> getPedidoList() {
-		return new JPADAO().findAll();
+		return dao.findAll();
 	}
 
 	public PedidoEntity getPedido() {

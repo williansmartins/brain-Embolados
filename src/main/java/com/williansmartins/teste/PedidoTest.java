@@ -6,28 +6,30 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import com.williansmartins.dao.JPADAO;
+import com.williansmartins.dao.JpaGenericDao;
+import com.williansmartins.dao.PedidoDaoImpl;
 import com.williansmartins.model.PedidoEntity;
 
 public class PedidoTest {
-	JPADAO dao = new JPADAO();
-
+	JpaGenericDao<PedidoEntity> dao = new PedidoDaoImpl();
+	
 	@Test
-	public void inserirPedido() {
-		PedidoEntity pedidoMockado = new PedidoEntity("nayara", "baguete", "vinho");
-		pedidoMockado = dao.insert(pedidoMockado);
-		PedidoEntity pedidoBuscado = dao.findById(pedidoMockado);
+	public void inserirObjeto() {
+		PedidoEntity obj = new PedidoEntity("luis", "Xis-salada", "suquinho-saude");
 		
-		Assert.assertEquals(pedidoBuscado.getId(), pedidoMockado.getId());
-		Assert.assertEquals(pedidoBuscado.getNome(), pedidoMockado.getNome());
+		dao.insert(obj);
+		PedidoEntity obj2 = dao.findById(obj.getId());
+		
+		Assert.assertEquals(obj.getId(), obj2.getId());
+		dao.delete(obj2.getId());
 	}
 	
 	@Test
 	public void excluirPedido() {
 		PedidoEntity pedidoMockado = new PedidoEntity("nayara", "baguete", "vinho");
 		dao.insert(pedidoMockado);
-		dao.delete(pedidoMockado);
-		PedidoEntity pedidoBanco = dao.findById(pedidoMockado);
+		dao.delete(pedidoMockado.getId());
+		PedidoEntity pedidoBanco = dao.findById(pedidoMockado.getId());
 		
 		Assert.assertNull(pedidoBanco);
 	}

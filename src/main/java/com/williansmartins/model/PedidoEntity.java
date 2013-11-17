@@ -1,12 +1,16 @@
 package com.williansmartins.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity(name="pedido_jpa")
-public class PedidoEntity {
+public class PedidoEntity implements Serializable {
 
+	private static final long serialVersionUID = 83908783713350043L;
+	
 	@Id @GeneratedValue
 	Integer id;
 	String nome;
