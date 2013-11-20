@@ -75,7 +75,7 @@ margin:0 auto;
 	background-color:currentcolor; 
 	width:950px;
 	height:216px;
-	/*border: solid 1px green;/*borda*/
+	background-image:url(../img/bolados.png);/**/
 }
 #vitrine #myGallery{
 	overflow:hidden;
