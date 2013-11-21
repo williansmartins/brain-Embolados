@@ -48,6 +48,11 @@
     + `pode ter a ver com o path do arquivo persistence.xml`
     + `faltava a dependência entity-manager do HIBERNATE (que burro! dá zero pra ele)`
 
+  - **Problema7**: GIT estava dando erro de certificado
+
+    + `rodei o comando abaixo e ele ignorou o uso do certificado`
+    + `git config --global http.sslVerify false`    
+
 
     **[[⬆]](#TOC)**
     
