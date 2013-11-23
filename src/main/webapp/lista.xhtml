@@ -55,7 +55,7 @@
 			    					<f:setPropertyActionListener target="#{pedidos.pedido}" value="#{o}"></f:setPropertyActionListener>
 			    				</h:commandButton>
 			    				 &nbsp;
-			    				<h:commandButton styleClass="btn btn-danger" value="Delete" action="#{pedidos.remove()}">
+			    				<h:commandButton styleClass="btn btn-danger" value="Delete" action="#{pedidos.remove()}" onclick="return confirm('Tem certeza?')">
 			    					<f:setPropertyActionListener target="#{pedidos.pedido}" value="#{o}"></f:setPropertyActionListener>
 			    				</h:commandButton>
 			    			</h:column>

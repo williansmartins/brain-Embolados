@@ -1,5 +1,6 @@
 package com.williansmartins.teste;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.Assert;
@@ -16,12 +17,8 @@ public class PedidoTest {
 	@Test
 	public void inserirObjeto() {
 		PedidoEntity obj = new PedidoEntity("luis", "Xis-salada", "suquinho-saude");
-		
 		dao.insert(obj);
-		PedidoEntity obj2 = dao.findById(obj.getId());
-		
-		Assert.assertEquals(obj.getId(), obj2.getId());
-		dao.delete(obj2.getId());
+		Assert.assertNotNull(obj.getId());
 	}
 	
 	@Test
@@ -36,10 +33,15 @@ public class PedidoTest {
 	
 	@Test
 	public void listarPedidos() {
-		PedidoEntity pedidoMockado1 = new PedidoEntity("nome1", "lanche1", "bebida1");
-		PedidoEntity pedidoMockado2 = new PedidoEntity("nome2", "lanche2", "bebida2");
-		dao.insert(pedidoMockado1);
-		dao.insert(pedidoMockado2);
+		List<PedidoEntity> listaEntities = new ArrayList<PedidoEntity>();
+		
+		for  (int cont = 0; cont < 10; cont++) {
+			PedidoEntity pedidoMockado = new PedidoEntity("nome2", "lanche2", "bebida2");
+			listaEntities.add(pedidoMockado);
+		}
+		
+		dao.insertAll(listaEntities);
+		
 		List<PedidoEntity> lista = dao.findAll();
 		
 		Assert.assertTrue( lista.size() >1 );

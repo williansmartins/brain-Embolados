@@ -37,6 +37,8 @@ public class JpaGenericDao<T extends Serializable> implements Dao<T>{
 			entityManager.close();
 		}
 	}
+    
+    
 	
 	@Override
 	public List<T> findAll() {
@@ -147,5 +149,13 @@ public class JpaGenericDao<T extends Serializable> implements Dao<T>{
 		}else{
 			return false;
 		}
+	}
+
+	@Override
+	public void insertAll(List<T> entities) {
+		for (T t : entities) {
+			insert(t);
+		}
+		
 	}
 }
