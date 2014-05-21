@@ -1,20 +1,5 @@
 package com.williansmartins.dao;
 
-import java.io.Serializable;
-import java.lang.reflect.ParameterizedType;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaQuery;
-
-import com.williansmartins.model.PedidoEntity;
 
 public class JpaGenericDao<T extends Serializable> implements Dao<T>{
 
