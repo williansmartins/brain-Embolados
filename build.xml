@@ -9,6 +9,6 @@
 	
 	<target name="deploy">
 		<delete file="/usr/share/tomcat6/webapps/brain-1.0-SNAPSHOT.war"/>
-		<move file="/usr/share/tomcat6/.m2/repository/brain/brain/1.0-SNAPSHOT/brain-1.0-SNAPSHOT.war" tofile="/usr/share/tomcat6/webapps/"/>
+		<move file="/usr/share/tomcat6/.m2/repository/brain/brain/1.0-SNAPSHOT/brain-1.0-SNAPSHOT.war" tofile="/usr/share/tomcat6/webapps/brain-1.0-SNAPSHOT.war"/>
 	</target>
 </project>
