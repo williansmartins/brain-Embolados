@@ -29,4 +29,8 @@
 	<target name="jar" depends="test">
 		<jar destfile="target/jenkins-exemplo.jar" basedir="target/classes/" />
 	</target>
+	<target name="deploy" depends="test">
+		<delete file="/usr/share/tomcat6/webapps/brain-1.0-SNAPSHOT.war"/>
+		<move file="/usr/share/tomcat6/.m2/repository/brain/brain/1.0-SNAPSHOT/brain-1.0-SNAPSHOT.war" tofile="/usr/share/tomcat6/webapps/"/>
+	</target>
 </project>
